@@ -56,22 +56,22 @@ stock-price-predictor/
 ## 📸 Screenshots
 
 ### 🔐 Login Page
-![Login](assets/screenshots/Login.png)
+![Login](assets/screenshots/login.png)
 
 ---
 
 ### 📊 Stock Dashboard
 
 #### Top Gainers
-![Gainers](assets/screenshots/Gainers.png)
+![Gainers](assets/screenshots/gainers.png)
 
 #### Top Losers
-![Losers](assets/screenshots/Losers.png)
+![Losers](assets/screenshots/losers.png)
 
 #### Most Active Stocks
-![Active](assets/screenshots/Active.png)
+![Active](assets/screenshots/active.png)
 
 ---
 
 ### 📈 Prediction Output
-![Prediction](assets/screenshots/Prediction.png)
+![Prediction](assets/screenshots/prediction.png)
