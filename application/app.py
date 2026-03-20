@@ -8,7 +8,7 @@ from passlib.hash import pbkdf2_sha256
 from yahoo_fin import stock_info as si
 import plotly.graph_objects as go
 import requests
-import yfinance as yf
+from datetime import datetime
 
 # Load the machine learning model
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "model", "Stock Prediction Model.keras")
@@ -119,6 +119,51 @@ def display_stock_stats():
     st.subheader('Most Active Stocks')
     st.write(most_active)
 
+def fetch_stock_history(symbol, start_date, end_date):
+    start_ts = int(datetime.strptime(start_date, "%Y-%m-%d").timestamp())
+    end_ts = int(datetime.strptime(end_date, "%Y-%m-%d").timestamp())
+
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+    params = {
+        "period1": start_ts,
+        "period2": end_ts,
+        "interval": "1d",
+        "includePrePost": "false",
+        "events": "div,split"
+    }
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    response = requests.get(url, params=params, headers=headers, timeout=20)
+    response.raise_for_status()
+    data = response.json()
+
+    result = data.get("chart", {}).get("result")
+    if not result:
+        return pd.DataFrame()
+
+    result = result[0]
+    timestamps = result.get("timestamp", [])
+    indicators = result.get("indicators", {}).get("quote", [{}])[0]
+
+    if not timestamps or not indicators:
+        return pd.DataFrame()
+
+    df = pd.DataFrame({
+        "open": indicators.get("open", []),
+        "high": indicators.get("high", []),
+        "low": indicators.get("low", []),
+        "close": indicators.get("close", []),
+        "volume": indicators.get("volume", [])
+    })
+
+    df["date"] = pd.to_datetime(timestamps, unit="s")
+    df.set_index("date", inplace=True)
+    df.dropna(subset=["close"], inplace=True)
+
+    return df
+
 # Function to display the stock market predictor
 def display_stock_predictor(symbol):
     if not symbol or symbol.strip() == "":
@@ -134,19 +179,11 @@ def display_stock_predictor(symbol):
     end = end_date.strftime("%Y-%m-%d")
 
     symbol = symbol.strip().upper()
-
-    with st.spinner("Fetching stock data..."):
-    
-        data = yf.download(symbol, start=start, end=end, auto_adjust=False, progress=False)
+    data = fetch_stock_history(symbol, start, end)
 
     if data is None or data.empty:
         st.error(f"No data found for symbol: {symbol}")
         return
-
-    if isinstance(data.columns, pd.MultiIndex):
-        data.columns = data.columns.get_level_values(0)
-
-    data.columns = [str(col).lower() for col in data.columns]
 
     st.subheader('Stock Data')
     st.write(data)
