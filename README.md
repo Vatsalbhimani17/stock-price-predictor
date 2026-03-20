@@ -2,6 +2,9 @@
 
 A Streamlit-based web application for stock analysis and prediction using machine learning.
 
+## 🚀 Live Demo
+👉 https://stock-price-predictor-iua23tgvz4wfslmwwncq3a.streamlit.app/
+
 ## Project Overview
 
 This project allows users to:
