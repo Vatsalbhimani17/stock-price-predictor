@@ -133,7 +133,11 @@ def display_stock_predictor(symbol):
     start = start_date.strftime("%Y-%m-%d")
     end = end_date.strftime("%Y-%m-%d")
 
-    data = yf.download(symbol, start=start, end=end, auto_adjust=False)
+    symbol = symbol.strip().upper()
+
+    with st.spinner("Fetching stock data..."):
+        ticker = yf.Ticker(symbol)
+        data = ticker.history(start=start, end=end, auto_adjust=False)
 
     if data is None or data.empty:
         st.error(f"No data found for symbol: {symbol}")
