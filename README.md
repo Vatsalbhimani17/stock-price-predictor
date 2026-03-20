@@ -50,3 +50,28 @@ stock-price-predictor/
 │   └── Prediction Model.ipynb
 │── requirements.txt
 │── README.md
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login](assets/screenshots/Login.png)
+
+---
+
+### 📊 Stock Dashboard
+
+#### Top Gainers
+![Gainers](assets/screenshots/Gainers.png)
+
+#### Top Losers
+![Losers](assets/screenshots/Losers.png)
+
+#### Most Active Stocks
+![Active](assets/screenshots/Active.png)
+
+---
+
+### 📈 Prediction Output
+![Prediction](assets/screenshots/Prediction.png)
