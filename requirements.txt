@@ -1,0 +1,15 @@
+streamlit
+numpy
+pandas
+keras
+tensorflow
+passlib
+yahoo_fin
+plotly
+requests
+yfinance
+scikit-learn
+lxml
+html5lib
+requests-html
+lxml_html_clean
