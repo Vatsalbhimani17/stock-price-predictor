@@ -136,8 +136,8 @@ def display_stock_predictor(symbol):
     symbol = symbol.strip().upper()
 
     with st.spinner("Fetching stock data..."):
-        ticker = yf.Ticker(symbol)
-        data = ticker.history(start=start, end=end, auto_adjust=False)
+    
+    data = yf.download(symbol, start=start, end=end, auto_adjust=False, progress=False)
 
     if data is None or data.empty:
         st.error(f"No data found for symbol: {symbol}")

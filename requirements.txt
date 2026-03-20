@@ -8,6 +8,7 @@ yahoo_fin
 plotly
 requests
 yfinance
+curl_cffi
 scikit-learn
 lxml
 html5lib
