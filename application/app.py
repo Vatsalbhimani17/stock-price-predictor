@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 from keras.models import load_model
 import streamlit as st
 import sqlite3
@@ -10,7 +11,8 @@ import requests
 import yfinance as yf
 
 # Load the machine learning model
-model = load_model('model/Stock Prediction Model.keras')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model", "Stock Prediction Model.keras")
+model = load_model(MODEL_PATH, compile=False)
 
 # Function to create a database connection
 def create_connection(db_file):
