@@ -40,7 +40,6 @@ This project allows users to:
 
 ## Project Structure
 
-```text
 stock-price-predictor/
 │── application/
 │   ├── app.py
