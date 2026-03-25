@@ -73,6 +73,6 @@ stock-price-predictor/
 ---
 
 ### 📈 Prediction Output
-![Prediction](prediction.png)
+![Prediction](assets/screenshots/prediction.png)
 
 ---
