@@ -39,7 +39,7 @@ This project allows users to:
 - Yahoo Finance Data
 
 ## Project Structure
-
+```
 stock-price-predictor/
 │── application/
 │   ├── app.py
@@ -49,7 +49,7 @@ stock-price-predictor/
 │   └── Prediction Model.ipynb
 │── requirements.txt
 │── README.md
-
+```
 ---
 
 ## 📸 Screenshots
