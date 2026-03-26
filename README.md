@@ -16,6 +16,9 @@ This project allows users to:
 - View moving average charts
 - Compare predicted vs actual stock prices
 
+## 📄 Project Report
+👉 [View Detailed Report](docs/project_report.md)
+
 ## Features
 
 - User Authentication using SQLite and Passlib
