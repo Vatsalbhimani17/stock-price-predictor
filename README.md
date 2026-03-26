@@ -45,6 +45,11 @@ stock-price-predictor/
 │   ├── app.py
 │   ├── model/
 │   │   └── Stock Prediction Model.keras
+│── assets/
+│   ├── screenshots/
+│   ├── diagrams/
+│── docs/
+│   └── project_report.md
 │── notebooks/
 │   └── Prediction Model.ipynb
 │── requirements.txt
@@ -74,5 +79,17 @@ stock-price-predictor/
 
 ### 📈 Prediction Output
 ![Prediction](assets/screenshots/prediction.png)
+
+---
+
+### 📊 System Design
+
+#### Use Case Diagram
+![Use Case Diagram](assets/diagrams/use_case_diagram.png)
+
+---
+
+#### Class Diagram
+![Class Diagram](assets/diagrams/class_diagram.png)
 
 ---
