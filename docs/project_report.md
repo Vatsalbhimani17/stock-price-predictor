@@ -102,10 +102,60 @@ These visualizations help users understand trends and evaluate how closely the m
 ## 8. System Design
 
 ### Use Case Diagram
-(Refer to diagrams in the repository)
+
+![Use Case Diagram](../assets/diagrams/use_case_diagram.png)
+
+The Use Case Diagram represents how users interact with the system.
+
+- The primary actor is the **User**
+- The user can:
+  - Sign up and log in to the system  
+  - View stock statistics (Top Gainers, Losers, Most Active)  
+  - Search for a specific stock  
+  - View stock prediction analysis  
+  - Logout from the system  
+
+The diagram also shows system-level operations such as:
+- Fetching stock data  
+- Processing data for analysis  
+- Displaying prediction results  
+
+This diagram provides a high-level overview of user interactions and system functionalities.
+
+---
 
 ### Class Diagram
-(Refer to diagrams in the repository)
+
+![Class Diagram](../assets/diagrams/class_diagram.png)
+
+The Class Diagram represents the internal structure of the system.
+
+Main components include:
+
+- **User**
+  - Stores user details such as username, email, and password  
+  - Handles authentication functions like signup, login, and logout  
+
+- **Database**
+  - Manages SQLite connection  
+  - Handles user-related operations such as inserting and verifying users  
+
+- **StockData**
+  - Responsible for fetching stock data  
+  - Stores symbol, date range, and retrieved data  
+
+- **StockPredictionModel**
+  - Contains the trained LSTM model  
+  - Performs prediction on processed stock data  
+
+- **StreamlitApp**
+  - Acts as the main controller of the application  
+  - Integrates all components  
+  - Handles UI rendering and user interactions  
+
+The relationships between classes show how different components interact to build the complete system.
+
+This diagram provides a clear understanding of system architecture and data flow.
 
 ---
 
